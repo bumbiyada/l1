@@ -69,6 +69,99 @@ l1 task repository
 Разработать программу, которая проверяет, что все символы в строке уникальные (true — если уникальные, false etc). Функция проверки должна быть регистронезависимой.
 
 Например: 
-abcd — true
-abCdefAaf — false
-	aabcd — false
+abcd — true <br>
+abCdefAaf — false <br>
+	aabcd — false <br>
+# Устные вопросы
+### 1.	Какой самый эффективный способ конкатенации строк?
+
+### 2.	Что такое интерфейсы, как они применяются в Go?
+
+### 3.	Чем отличаются `RWMutex` от `Mutex`?
+
+### 4.	Чем отличаются буферизированные и не буферизированные каналы?
+
+### 5.	Какой размер у структуры `struct{}{}`?
+
+### 6.	Есть ли в Go перегрузка методов или операторов?
+
+### 7.	В какой последовательности будут выведены элементы `map[int]int`? <br>
+<br>
+Пример:		<br>
+m[0]=1		<br>
+m[1]=124	<br>
+m[2]=281	<br>
+
+### 8.	В чем разница `make` и `new`?
+
+### 9.	Сколько существует способов задать переменную типа `slice` или `map`?
+
+### 10.	Что выведет данная программа и почему? <br>
+						<br>
+func update(p *int) {	<br>
+  b := 2		<br>
+  p = &b		<br>
+}			<br>
+			<br>
+func main() {		<br>
+  var (			<br>
+     a = 1		<br>
+     p = &a		<br>
+  )			<br>
+  fmt.Println(*p)	<br>
+  update(p)		<br>
+  fmt.Println(*p)	<br>
+}			<br>
+
+### 11.	Что выведет данная программа и почему?
+
+func main() {					<br>
+  wg := sync.WaitGroup{}			<br>
+  for i := 0; i < 5; i++ {			<br>
+     wg.Add(1)					<br>
+     go func(wg sync.WaitGroup, i int) {	<br>
+        fmt.Println(i)				<br>
+        wg.Done()				<br>
+     }(wg, i)					<br>
+  }						<br>
+  wg.Wait()					<br>
+  fmt.Println("exit")				<br>
+}						<br>
+
+### 12.	Что выведет данная программа и почему?
+
+func main() {		<br>
+  n := 0		<br>
+  if true {		<br>
+     n := 1		<br>
+     n++		<br>
+  }			<br>
+  fmt.Println(n)	<br>
+}			<br>
+
+### 13.	Что выведет данная программа и почему?
+
+func someAction(v []int8, b int8) {	<br>
+  v[0] = 100				<br>
+  v = append(v, b)			<br>
+}					<br>
+					<br>
+func main() {				<br>
+  var a = []int8{1, 2, 3, 4, 5}		<br>
+  someAction(a, 6)			<br>
+  fmt.Println(a)			<br>
+}					<br>
+
+### 14.	Что выведет данная программа и почему?
+
+func main() {				<br>
+  slice := []string{"a", "a"}		<br>
+					<br>
+  func(slice []string) {		<br>
+     slice = append(slice, "a")		<br>
+     slice[0] = "b"			<br>
+     slice[1] = "b"			<br>
+     fmt.Print(slice)			<br>
+  }(slice)				<br>
+  fmt.Print(slice)			<br>
+}					<br>
