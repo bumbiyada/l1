@@ -11,8 +11,7 @@ import "fmt"
 // }
 
 // func main() {
-// someFunc()
-// }
+// someFunc()git
 func main() {
 	//example of crash
 	var a = `превед медвед`
