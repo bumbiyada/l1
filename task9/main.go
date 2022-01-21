@@ -5,6 +5,7 @@ import (
 	"os"
 	"os/signal"
 	"sync"
+	"time"
 )
 
 func main() {
@@ -26,9 +27,11 @@ func main() {
 		fmt.Println("goroutine finished")
 	}()
 	fmt.Println("goroutine started")
+	t := time.Now()
 	// get data from 1-st chan, multiply it and push to 2-nd chan
 	wg.Add(1)
 	go func() {
+		incr := 0
 		for {
 			select {
 			case val := <-ch1:
@@ -36,8 +39,12 @@ func main() {
 				ch2 <- res
 			case <-br1:
 				wg.Done()
+				fmt.Println(incr)
+				fmt.Println(time.Since(t).Microseconds())
 				fmt.Println("goroutine finished")
 			default:
+				time.Sleep(time.Millisecond * 20)
+				incr++
 			}
 		}
 
