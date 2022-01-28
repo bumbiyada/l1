@@ -96,72 +96,72 @@ m[2]=281	<br>
 
 ### 9.	Сколько существует способов задать переменную типа `slice` или `map`?
 
-### 10.	Что выведет данная программа и почему? <br>
-						<br>
-func update(p *int) {	<br>
-  b := 2		<br>
-  p = &b		<br>
-}			<br>
-			<br>
-func main() {		<br>
-  var (			<br>
-     a = 1		<br>
-     p = &a		<br>
-  )			<br>
-  fmt.Println(*p)	<br>
-  update(p)		<br>
-  fmt.Println(*p)	<br>
-}			<br>
+### 10.	Что выведет данная программа и почему?
+	
+	func update(p *int) {	
+	  b := 2		
+	  p = &b		
+	}			
+			
+	func main() {		
+	  var (			
+ 	    a = 1		
+	    p = &a		
+	  )			
+	  fmt.Println(*p)	
+	  update(p)		
+	  fmt.Println(*p)	
+	}			
 
 ### 11.	Что выведет данная программа и почему?
 
-func main() {					<br>
-  wg := sync.WaitGroup{}			<br>
-  for i := 0; i < 5; i++ {			<br>
-     wg.Add(1)					<br>
-     go func(wg sync.WaitGroup, i int) {	<br>
-        fmt.Println(i)				<br>
-        wg.Done()				<br>
-     }(wg, i)					<br>
-  }						<br>
-  wg.Wait()					<br>
-  fmt.Println("exit")				<br>
-}						<br>
+	func main() {					
+	  wg := sync.WaitGroup{}			
+	  for i := 0; i < 5; i++ {			
+	     wg.Add(1)					
+	     go func(wg sync.WaitGroup, i int) {	
+		fmt.Println(i)				
+		wg.Done()				
+	     }(wg, i)					
+	  }						
+	  wg.Wait()					
+	  fmt.Println("exit")				
+	}						
 
 ### 12.	Что выведет данная программа и почему?
 
-func main() {		<br>
-  n := 0		<br>
-  if true {		<br>
-     n := 1		<br>
-     n++		<br>
-  }			<br>
-  fmt.Println(n)	<br>
-}			<br>
+	func main() {		
+	  n := 0		
+	  if true {		
+	     n := 1		
+	     n++		
+	  }			
+	  fmt.Println(n)	
+	}			
 
 ### 13.	Что выведет данная программа и почему?
 
-func someAction(v []int8, b int8) {	<br>
-  v[0] = 100				<br>
-  v = append(v, b)			<br>
-}					<br>
-					<br>
-func main() {				<br>
-  var a = []int8{1, 2, 3, 4, 5}		<br>
-  someAction(a, 6)			<br>
-  fmt.Println(a)			<br>
-}					<br>
+	func someAction(v []int8, b int8) {	
+	  v[0] = 100				
+	  v = append(v, b)			
+	}					
+	
+	func main() {				
+	  var a = []int8{1, 2, 3, 4, 5}		
+	  someAction(a, 6)			
+	  fmt.Println(a)			
+	}					
 
 ### 14.	Что выведет данная программа и почему?
 
-func main() {				<br>
-  slice := []string{"a", "a"}		<br>
-					<br>
-  func(slice []string) {		<br>
-     slice = append(slice, "a")		<br>
-     slice[0] = "b"			<br>
-     slice[1] = "b"			<br>
-     fmt.Print(slice)			<br>
-  }(slice)				<br>
-  fmt.Print(slice)			<br>
-}					<br>
+	func main() {				
+	  slice := []string{"a", "a"}		
+	
+	  func(slice []string) {		
+	     slice = append(slice, "a")		
+	     slice[0] = "b"			
+	     slice[1] = "b"			
+	     fmt.Print(slice)			
+	  }(slice)				
+	  fmt.Print(slice)			
+	}					
