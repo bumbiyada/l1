@@ -4,8 +4,8 @@ import (
 	"fmt"
 )
 
-// На вход подаются два неупорядоченных массива любой длины.
-// Необходимо написать функцию, которая возвращает пересечение массивов
+// Our function firstly iterates first array and add values to temperary map
+// then it iterates on the second array and decrement values from our temperary map if values equal
 func intersection(a, b []int) []int {
 	counter := make(map[int]int)
 	var result []int

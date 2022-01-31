@@ -12,9 +12,13 @@ import (
 	"time"
 )
 
+// !!!
+// THIS APP REQUERS 1 PARAMETER - N(INT) NUMBER OF WORKERS
+// !!!
 // First variant
+
+//worker, get value from channel and printing it
 func Worker(number int, ch chan int, close chan bool) {
-	//defer WG.Done()
 	for {
 		select {
 		case <-close:
@@ -28,6 +32,7 @@ func Worker(number int, ch chan int, close chan bool) {
 	}
 }
 func main() {
+	// parsing flag, N- int number of Workers
 	flag.Parse()
 	args := flag.Args()
 	n, err := strconv.Atoi(args[0])
@@ -39,6 +44,7 @@ func main() {
 	var close = make(chan bool)
 
 	WG.Add(1)
+	// Generator, it RANDOMISE values and post it to channel, then one of Workers get it and print
 	go func(c chan int, close chan bool) {
 		defer WG.Done()
 		for {
@@ -63,6 +69,7 @@ func main() {
 
 	}
 	WG.Add(1)
+	// Goroutine to listen keyboard interrupt
 	go func(close chan bool) {
 		sigint := make(chan os.Signal, 1)
 		signal.Notify(sigint, os.Interrupt)

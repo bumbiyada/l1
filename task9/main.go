@@ -16,8 +16,9 @@ func main() {
 	arr := []int{4, 5, 6, 7, 8}
 	var wg sync.WaitGroup
 	fmt.Println("goroutine started")
-	wg.Add(1)
+
 	// get data from array and push it to first channel
+	wg.Add(1)
 	go func() {
 		for _, val := range arr {
 			fmt.Printf("sending from array \t %v\n", val)
@@ -28,6 +29,7 @@ func main() {
 	}()
 	fmt.Println("goroutine started")
 	t := time.Now()
+
 	// get data from 1-st chan, multiply it and push to 2-nd chan
 	wg.Add(1)
 	go func() {
@@ -49,6 +51,7 @@ func main() {
 		}
 
 	}()
+
 	// print values from chan 2 to standard output
 	wg.Add(1)
 	fmt.Println("goroutine started")

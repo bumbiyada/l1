@@ -4,6 +4,7 @@ import (
 	"fmt"
 )
 
+// base struct
 type Human struct {
 	Name   string
 	Age    int
@@ -11,18 +12,6 @@ type Human struct {
 	Weight int
 }
 
-type Action struct {
-	Human
-	Act string
-}
-
-func (a *Action) New(name string, age int, height int, weight int) {
-	a.Name = name
-	a.Age = age
-	a.Height = height
-	a.Weight = weight
-	fmt.Printf("Created new human, name= %s, age= %v, height= %v, weight= %v\n", a.Name, a.Age, a.Height, a.Weight)
-}
 func (h *Human) Birthday() {
 	h.Age = h.Age + 1
 	fmt.Println("HOOORAY IT`S BIRTHDAY ! ", h.Name)
@@ -36,6 +25,20 @@ func (h *Human) WeightMyself() {
 		fmt.Println("Well Done, your weight is OK ", h.Weight)
 	}
 
+}
+
+// secondary struct
+type Action struct {
+	Human
+	Act string
+}
+
+func (a *Action) New(name string, age int, height int, weight int) {
+	a.Name = name
+	a.Age = age
+	a.Height = height
+	a.Weight = weight
+	fmt.Printf("Created new human, name= %s, age= %v, height= %v, weight= %v\n", a.Name, a.Age, a.Height, a.Weight)
 }
 
 func main() {

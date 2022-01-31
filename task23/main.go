@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+// deletes element from slice
 func delete(slice []int, n int) (res []int) {
 	if n >= len(slice) {
 		fmt.Println("too high value")

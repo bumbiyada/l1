@@ -5,14 +5,13 @@ import (
 	"strings"
 )
 
+// find out if all chars in str are unique
 func Uniq(str string) bool {
 	str = strings.ToLower(str)
 	var tmp []rune
 	buff := map[string]bool{}
 	tmp = []rune(str)
 	for _, val := range tmp {
-		//if buff[string(val)] == nil; buff[string(val)] = true
-		fmt.Println(val)
 		b := buff[string(val)]
 		if b == false {
 			buff[string(val)] = true
@@ -25,7 +24,7 @@ func Uniq(str string) bool {
 }
 
 func main() {
-	var str string = "aabcd"
+	var str string = "abcd"
 	res := Uniq(str)
 	fmt.Println(res)
 }

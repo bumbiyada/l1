@@ -5,6 +5,7 @@ import (
 	"math/big"
 )
 
+// using math/big package
 type mystruct struct {
 	val *big.Float
 }

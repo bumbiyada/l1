@@ -5,7 +5,7 @@ import (
 	"sync"
 )
 
-// First variant
+// First variant. Multiply values and return them
 func Square(n int) (res int) {
 	return (n * n)
 }
